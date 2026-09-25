@@ -1,0 +1,68 @@
+/* 1. Fondo negro de toda la pantalla */
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+/* 2. La caja oscura centrada con la línea roja */
+.caja-registro {
+    background-color: #171717;
+    max-width: 400px;
+    margin: 60px auto; /* Centra la caja */
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 4px solid #dc2626; /* Línea roja arriba */
+}
+
+.caja-registro h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* 3. Organización de los campos (Apilados) */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.grupo-input label {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin-bottom: 8px;
+}
+
+.grupo-input input {
+    background-color: #262626;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    outline: none; /* Quita el borde azul feo */
+    transition: border-color 0.3s;
+}
+
+/* El efecto al hacer clic en el input */
+.grupo-input input:focus {
+    border-color: #dc2626;
+}
+
+/* 4. El botón rojo */
+.btn-rojo {
+    width: 100%;
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-rojo:hover {
+    background-color: #b91c1c; /* Se oscurece al pasar el ratón */
+}
