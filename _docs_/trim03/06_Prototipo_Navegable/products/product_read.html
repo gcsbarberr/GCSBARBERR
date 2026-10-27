@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos | Vikingos Master</title>
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <!--  NAVBAR  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary-subtle">
+    <div class="container">
+
+      <a class="navbar-brand logo-text" href="../users/index.html#inicio">VIKINGOS MASTER</a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+
+    <ul class="navbar-nav mx-lg-auto align-items-lg-center mb-3 mb-lg-0 gap-lg-2">
+         <li class="nav-item"><a class="nav-link" href="../users/index.html#inicio">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="../users/index.html#servicios">SERVICIOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="../users/index.html#barberos">BARBEROS</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../products/product_read.html">PRODUCTOS</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="../pages/reservar.html" class="btn btn-vikingo">RESERVAR CITA</a>
+          </li>
+        </ul>
+
+        <a href="../users/login.html" class="btn btn-login">Iniciar sesión</a>
+
+      </div>
+    </div>
+  </nav>
+
+
+  
+  <!-- ========== PASO 14: PRODUCTOS ========== -->
+
+
+  
+  <main class="shop-section section-dark">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <p class="section-eyebrow">TIENDA</p>
+        <h1 class="section-title">PRODUCTOS</h1>
+        <span class="section-line"></span>
+      </div>
+
+      <!-- Botones de filtro -->
+      <div id="filtrosProductos" class="d-flex flex-wrap justify-content-center gap-2 mb-5"
+           role="group" aria-label="Filtrar por categoría">
+        <button type="button" class="filter-btn active" data-filtro="todos">TODOS</button>
+        <button type="button" class="filter-btn" data-filtro="ceras">CERAS</button>
+        <button type="button" class="filter-btn" data-filtro="geles">GELES</button>
+        <button type="button" class="filter-btn" data-filtro="pomadas">POMADAS</button>
+        <button type="button" class="filter-btn" data-filtro="shampoos">SHAMPOOS</button>
+        <button type="button" class="filter-btn" data-filtro="aceites">ACEITES</button>
+        <button type="button" class="filter-btn" data-filtro="balsamos">BÁLSAMOS</button>
+        <button type="button" class="filter-btn" data-filtro="peines">PEINES</button>
+        <button type="button" class="filter-btn" data-filtro="cepillos">CEPILLOS</button>
+        <button type="button" class="filter-btn" data-filtro="polvos">POLVOS</button>
+      </div>
+
+      <!-- Tarjetas -->
+      <div id="listaProductos" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+        <div class="col" data-categoria="ceras">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/cera.jpg" class="card-img-top" alt="Cera Mate Premium">
+            <div class="card-body">
+              <p class="product-category">Ceras</p>
+              <p class="product-name">Cera Mate Premium</p>
+              <p class="product-price">$35.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="geles">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-low position-absolute top-0 start-0 m-2">Stock bajo</span>
+            <img src="../img_productos/gel.jpg" class="card-img-top" alt="Gel Extra Fuerte">
+            <div class="card-body">
+              <p class="product-category">Geles</p>
+              <p class="product-name">Gel Extra Fuerte</p>
+              <p class="product-price">$22.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="pomadas">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/pomada.jpg" class="card-img-top" alt="Pomada Brillante">
+            <div class="card-body">
+              <p class="product-category">Pomadas</p>
+              <p class="product-name">Pomada Brillante</p>
+              <p class="product-price">$38.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="shampoos">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-out position-absolute top-0 start-0 m-2">Agotado</span>
+            <img src="../img_productos/shampoobarba.jpg" class="card-img-top" alt="Shampoo para barba">
+            <div class="card-body">
+              <p class="product-category">Shampoos</p>
+              <p class="product-name">Shampoo Para Barba</p>
+              <p class="product-price">$28.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="aceites">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/aceite.jpg" class="card-img-top" alt="Aceite de argán">
+            <div class="card-body">
+              <p class="product-category">Aceites</p>
+              <p class="product-name">Aceite de Argán</p>
+              <p class="product-price">$45.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="balsamos">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/balsamo.jpg" class="card-img-top" alt="Bálsamo hidratante">
+            <div class="card-body">
+              <p class="product-category">Bálsamos</p>
+              <p class="product-name">Bálsamo Hidratante</p>
+              <p class="product-price">$32.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="peines">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/peine.jpg" class="card-img-top" alt="Peine de madera">
+            <div class="card-body">
+              <p class="product-category">Peines</p>
+              <p class="product-name">Peine de Madera</p>
+              <p class="product-price">$18.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="cepillos">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-low position-absolute top-0 start-0 m-2">Stock bajo</span>
+            <img src="../img_productos/cepillo.jpg" class="card-img-top" alt="Cepillo para barba">
+            <div class="card-body">
+              <p class="product-category">Cepillos</p>
+              <p class="product-name">Cepillo Para Barba</p>
+              <p class="product-price">$24.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col" data-categoria="polvos">
+          <article class="card service-card product-card h-100">
+            <span class="badge badge-status status-available position-absolute top-0 start-0 m-2">Disponible</span>
+            <img src="../img_productos/polvo.jpg" class="card-img-top" alt="Polvo texturizador">
+            <div class="card-body">
+              <p class="product-category">Polvos</p>
+              <p class="product-name">Polvo Texturizador</p>
+              <p class="product-price">$42.000 COP</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer pt-5">
+    <div class="container">
+
+      <div class="row g-5 pb-5">
+
+        <div class="col-md-6 col-lg-3">
+          <p class="footer-brand logo-text">VIKINGOS MASTER</p>
+          <span class="footer-line"></span>
+          <p class="footer-text">Estilo, precisión y carácter. Más de 8 años transformando looks en Bogotá.</p>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Horarios</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li class="d-flex justify-content-between"><span>Lun – Vie</span><span class="text-white">9:00 – 18:00</span></li>
+            <li class="d-flex justify-content-between"><span>Sábado</span><span class="text-white">8:00 – 19:00</span></li>
+            <li class="d-flex justify-content-between"><span>Domingo</span><span class="text-white">10:00 – 15:00</span></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Contacto</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><i class="bi bi-geo-alt-fill text-vikingo me-2"></i>Cra. 15 #93-75, Bogotá</li>
+            <li><i class="bi bi-telephone-fill text-vikingo me-2"></i>+57 310 987 6543</li>
+            <li><i class="bi bi-envelope-fill text-vikingo me-2"></i>info@vikingosmaster.co</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Enlaces</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><a href="../users/index.html">Inicio</a></li>
+            <li><a href="../pages/servicios.html">Servicios</a></li>
+            <li><a href="index.html#barberos">Barberos</a></li>
+            <li><a href="../products/product_read.html">Productos</a></li>
+            <li><a href="../pages/reservar.html">Reservar cita</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2 py-4">
+        <small>&copy; 2026 Vikingos Master. Todos los derechos reservados.</small>
+        <small>Gestión de citas y servicios</small>
+      </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/sesion.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

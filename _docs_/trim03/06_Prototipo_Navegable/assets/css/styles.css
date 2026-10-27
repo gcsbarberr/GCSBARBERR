@@ -1,68 +1,1198 @@
-/* 1. Fondo negro de toda la pantalla */
+/* 
+   VIKINGOS MASTER - Estilos globales
+ */
+
+/* 1. VARIABLES */
+:root {
+  --vikingo-red: #e50914;
+  --vikingo-red-dark: #b8070f;
+  --bg-main: #111111;
+  --bg-card: #1a1a1a;
+  --border-subtle: #2a2a2a;
+  --text-muted-custom: #b5b5b5;
+
+  --bs-body-bg: var(--bg-main);
+  --bs-body-color: #ffffff;
+  --bs-body-font-family: 'Inter', sans-serif;
+}
+
+/* 2. BASE GLOBAL */
 body {
-    background-color: #000000;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+  background-color: var(--bg-main);
+  color: #fff;
+  font-family: var(--bs-body-font-family);
 }
 
-/* 2. La caja oscura centrada con la línea roja */
-.caja-registro {
-    background-color: #171717;
-    max-width: 400px;
-    margin: 60px auto; /* Centra la caja */
-    padding: 30px;
-    border-radius: 8px;
-    border-top: 4px solid #dc2626; /* Línea roja arriba */
+h1, h2, h3, h4, h5, h6,
+.logo-text {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.caja-registro h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
+/* 3. CLASES DE MARCA */
+.text-vikingo {
+  color: var(--vikingo-red) !important;
 }
 
-/* 3. Organización de los campos (Apilados) */
-.grupo-input {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+.btn-vikingo {
+  background-color: var(--vikingo-red);
+  border-color: var(--vikingo-red);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  padding: 0.55rem 1rem;
 }
 
-.grupo-input label {
-    font-size: 0.875rem;
-    color: #9ca3af;
-    margin-bottom: 8px;
+.btn-vikingo:hover,
+.btn-vikingo:focus {
+  background-color: var(--vikingo-red-dark);
+  border-color: var(--vikingo-red-dark);
+  color: #fff;
 }
 
-.grupo-input input {
-    background-color: #262626;
-    color: #ffffff;
-    padding: 12px;
-    border: 1px solid #404040;
-    border-radius: 4px;
-    outline: none; /* Quita el borde azul feo */
-    transition: border-color 0.3s;
+/* 4. NAVBAR */
+.navbar {
+  padding-block: 0.9rem;
 }
 
-/* El efecto al hacer clic en el input */
-.grupo-input input:focus {
-    border-color: #dc2626;
+.navbar .logo-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #fff;
 }
 
-/* 4. El botón rojo */
-.btn-rojo {
-    width: 100%;
-    background-color: #dc2626;
-    color: white;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+.navbar .nav-link {
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: color 0.2s ease;
 }
 
-.btn-rojo:hover {
-    background-color: #b91c1c; /* Se oscurece al pasar el ratón */
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--vikingo-red);
+}
+
+.btn-login {
+  color: #fff;
+  background: transparent;
+  border: 1px solid #4a4a4a;
+  border-radius: 2px;
+  padding: 0.55rem 1rem;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* 5. HERO */
+html {
+    scroll-padding-top: 80px; /* para que el navbar fijo no tape las secciones al navegar */
+    }
+
+    .hero {
+  min-height: 85vh;
+  background:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.85) 45%,
+      rgba(0, 0, 0, 0.4) 100%),
+    url("../../img/fondo.jpg") center / cover no-repeat;
+  background-color: #000; /* respaldo si la imagen no carga */
+}
+.hero-eyebrow {
+    color: var(--vikingo-red);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    }
+
+    .hero-tittle {
+        font-size: clamp(3.5rem, 9vw, 6.5rem); /* se adapta al tamaño de pantalla */
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #d9d9d9;
+    margin-bottom: 0.75rem;
+    }
+
+    .hero-text {
+        color: var(--text-muted-custom);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 480px;
+        }
+
+        /* boton transparente con borde blanco, esquinas rectas */
+        .btn-outline-white {
+            color: #fff;
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 2px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+    .btn-outline-white:hover,
+    .btn-outline-white:focus {
+        background-color: #fff;
+        color: #000;
+    }
+
+    /* 6. barra estadisticas */
+    .stats-bar {
+      background-color: var(--vikingo-red);
+      color: #fff;
+    }
+
+    .stat-number {
+      font-family: "Oswald", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      text-spacing: 2px;
+    }
+    /* 7. SECCIONES REUTILIZABLES */
+    .section-padding {
+      padding-block: 5rem;
+    }
+
+    .section-title {
+      background-color: #0a0a0a;
+    }
+    .section-eyebrow {
+      color: var(--vikingo-red);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .section-line {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background-color: var(--vikingo-red);
+      margin: 1rem auto 0;
+    }
+
+    /* 8. SERVICIOS */
+    .service-card {
+      --bs-card-bg: #131313;
+      --bs-card-border-color: var(--border-subtle);
+      --bs-card-border-radius: 2px;
+      --bs-card-inner-border-radius: 1px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .service-card:hover {
+      --bs-card-border-color: var(--vikingo-red);
+      transform: translateY(-4px);
+    }
+    .service-card .card-img-top {
+      height: 190px;
+      object-fit: cover;
+    }
+    .badge-vikingo {
+      background-color: var(--vikingo-red);
+      color: #fff;
+      font-weight: 400;
+      font-size: 0.75rem;
+      border-radius: 2px;
+      padding: 0.4rem 0.6rem;
+    }
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .service-desc {
+      color: var(--text-muted-custom);
+      font-size: 0.85rem;
+      lineheight: 1.25rem;
+    }
+    .service-link {
+      color: var(--vikingo-red);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-decoration: none;
+    }
+    .service-link:hover {
+      color: #fff;
+    }
+
+    /* 9. BARBEROS  */
+    .barber-photo {
+      width: 175px;
+      height: 175px;
+      object-fit: cover;
+      border: 2px solid #3a2a2c;
+    }
+
+    .barber-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .barber-specialty {
+      color: #e8505b;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    .barber-specialty {
+      color: #e8505b;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .barber-exp {
+      color: #7d7d7d;
+      font-size: 0.8rem;
+      margin: 0;
+    }
+
+    /* 10. cita reservar  */
+.cta-section {
+  padding-block: 6rem;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    url("../../img/fondo.jpg") center / cover no-repeat;
+  background-color: #000; /* respaldo si la imagen no carga */
+}
+
+.cta-title {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  max-width: 420px;
+  margin: 0 auto 1.25rem;
+}
+
+.cta-text {
+  color: #d0d0d0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+/* 11. PRODUCTOS */
+.product-card .card-img-top {
+  height: 145px;   /* más baja que las de servicios (190px) */
+}
+
+.product-category {
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.product-name {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.product-price {
+  color: var(--vikingo-red);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* 12 PIE DE PAGINA */
+.site-footer {
+  background-color: #0a0a0a;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.footer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0.6rem;
+}
+
+.footer-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--vikingo-red);
+  margin-bottom: 1.25rem;
+}
+
+.footer-text {
+  color: #8a8a8a;
+  line-height: 1.7;
+  max-width: 260px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-list li {
+  color: #9a9a9a;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-list a {
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-list a:hover {
+  color: var(--vikingo-red);
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #3a3a3a;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: var(--vikingo-red);
+  border-color: var(--vikingo-red);
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  color: #6f6f6f;
+  font-size: 0.8rem;
+}
+
+
+
+/* 15. PÁGINA SERVICIOS  */
+
+
+
+.services-page {
+  padding-block: 4rem 5rem;
+}
+
+/* El "marco" de la foto */
+.service-media {
+  position: relative;
+  flex: 0 0 225px;
+  min-height: 200px;
+}
+
+.service-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-page .card-body {
+  padding: 1.5rem;
+}
+
+.services-page .service-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.services-page .service-desc {
+  margin-bottom: 0.75rem;
+}
+
+.service-includes {
+  color: #22c55e;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.services-page .service-price {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--vikingo-red);
+}
+
+
+/* 16. LOGIN / REGISTRO */
+.auth-section {
+  padding-block: 3.5rem 5rem;
+  min-height: 75vh;
+}
+
+.auth-subtitle {
+  color: #9a9a9a;
+  margin: 1.25rem 0 0;
+}
+
+.auth-card {
+  max-width: 448px;
+}
+
+.demo-box {
+  background-color: #1f1f1f;
+  border: 1px solid #2e2e2e;
+  border-radius: 2px;
+  padding: 0.9rem 1rem;
+  font-size: 0.8rem;
+  color: #8a8a8a;
+}
+
+.demo-box strong {
+  color: #d0d0d0;
+  font-weight: 500;
+}
+
+.auth-links a {
+  color: #7d7d7d;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-links a:hover {
+  color: var(--vikingo-red);
+}
+
+
+/* 17. TEXTO "¿YA TIENES CUENTA?" */
+.auth-switch {
+  color: #7d7d7d;
+  font-size: 0.8rem;
+}
+
+.auth-switch a {
+  color: #e8505b;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* 18. PÁGINA PRODUCTOS (catálogo) */
+.shop-section {
+  padding-block: 3.5rem 5rem;
+  min-height: 75vh;
+}
+
+/* Botones de filtro */
+.filter-btn {
+  background-color: transparent;
+  color: #cfcfcf;
+  border: 1px solid #3a3a3a;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background-color: var(--vikingo-red);
+  border-color: var(--vikingo-red);
+  color: #fff;
+}
+
+/* Fotos un poco más altas que las del inicio */
+.shop-section .product-card .card-img-top {
+  height: 176px;
+}
+
+/* Etiquetas de stock */
+.badge-status {
+  font-weight: 500;
+  font-size: 0.75rem;
+  border-radius: 2px;
+  padding: 0.35rem 0.55rem;
+}
+
+.status-available {
+  background-color: #166534;
+  color: #86efac;
+}
+
+.status-low {
+  background-color: #78350f;
+  color: #fde047;
+}
+
+.status-out {
+  background-color: #991b1b;
+  color: #fecaca;
+}
+
+/* 19. NAVBAR CON SESIÓN */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-user-name {
+  color: #d9d9d9;
+  font-size: 0.95rem;
+}
+
+.nav-user-exit {
+  color: #e8505b;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-user-exit:hover {
+  color: #fff;
+}
+
+/* 20. PANEL DEL CLIENTE */
+.panel-section {
+  padding-block: 2.5rem 5rem;
+  min-height: 80vh;
+}
+
+.panel-container {
+  max-width: 980px;
+}
+
+.panel-eyebrow {
+  color: var(--vikingo-red);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.panel-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.panel-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Pestañas */
+.panel-tabs {
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 0.25rem;
+}
+
+.panel-tabs .nav-link {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: #9a9a9a;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.9rem 1rem;
+}
+
+.panel-tabs .nav-link:hover,
+.panel-tabs .nav-link:focus {
+  border-color: transparent;
+  color: #fff;
+}
+
+.panel-tabs .nav-link.active {
+  background: none;
+  color: var(--vikingo-red);
+  border-color: transparent transparent var(--vikingo-red);
+}
+
+/* Tarjeta de cita */
+.appointment-card {
+  background-color: #131313;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 1.25rem 1.5rem;
+}
+
+.appointment-label {
+  display: block;
+  color: #7d7d7d;
+  font-size: 0.8rem;
+  margin-bottom: 0.15rem;
+}
+
+.appointment-value {
+  color: #fff;
+  font-weight: 500;
+}
+
+.badge-confirmed {
+  background-color: #1e3a8a;
+  color: #93c5fd;
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 0.4rem 0.6rem;
+}
+
+.badge-done {
+  background-color: #3f3f46;
+  color: #d4d4d8;
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 0.4rem 0.6rem;
+}
+
+.btn-edit {
+  color: #60a5fa;
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 2px;
+}
+
+.btn-edit:hover {
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+
+.btn-cancel {
+  color: #e8505b;
+  background: transparent;
+  border: 1px solid #5c1a1f;
+  border-radius: 2px;
+}
+
+.btn-cancel:hover {
+  color: #e8505b;
+  border-color: var(--vikingo-red);
+  background-color: rgba(229, 9, 20, 0.12);
+}
+
+/* Tarjeta pequeña de servicio */
+.mini-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #131313;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 1.25rem;
+}
+
+.mini-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.mini-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.mini-card .service-price {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+}
+
+.mini-card .service-includes {
+  margin: 0 0 0.25rem;
+}
+
+/* Campo apagado (no editable) */
+.form-card .form-control:disabled {
+  background-color: #1b1b1b;
+  color: #777;
+}
+
+/* 21. VENTANA EMERGENTE (MODAL) */
+
+/* El fondo oscurecido y desenfocado */
+.modal-backdrop {
+  --bs-backdrop-bg: #000;
+  --bs-backdrop-opacity: 0.7;
+  backdrop-filter: blur(4px);
+}
+
+.vm-modal .modal-content {
+  background-color: #151515;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+.vm-modal .modal-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.25rem 1.5rem;
+}
+
+.vm-modal .modal-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.vm-modal .modal-body {
+  padding: 1.5rem;
+}
+
+.vm-modal .modal-footer {
+  border-top: 0;
+  padding: 0 1.5rem 1.5rem;
+  gap: 0.75rem;
+}
+
+/* Campos del formulario dentro de la ventana */
+.vm-modal .form-label {
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.vm-modal .form-control,
+.vm-modal .form-select {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 2px;
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
+.vm-modal .form-control:focus,
+.vm-modal .form-select:focus {
+  background-color: #222;
+  border-color: var(--vikingo-red);
+  box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25);
+  color: #fff;
+}
+
+/* Botón gris "Cancelar" */
+.btn-modal-cancel {
+  background-color: transparent;
+  color: #9a9a9a;
+  border: 1px solid #333;
+  border-radius: 2px;
+}
+
+.btn-modal-cancel:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* 22. PANEL DE ADMINISTRACIÓN */
+
+/* Que las pestañas no se partan en dos renglones */
+.panel-tabs .nav-link {
+  white-space: nowrap;
+}
+
+/* Tarjetitas del encabezado */
+.stat-box {
+  min-width: 92px;
+  text-align: center;
+  background-color: #131313;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.6rem 0.9rem;
+}
+
+.stat-box-number {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--vikingo-red);
+  line-height: 1.1;
+}
+
+.stat-box-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #9a9a9a;
+}
+
+/* Alerta de stock bajo */
+.stock-alert {
+  background-color: #2b1a08;
+  border: 1px solid #92400e;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+}
+
+.stock-alert-icon {
+  color: #facc15;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.stock-alert-title {
+  color: #fde047;
+  font-weight: 500;
+  margin: 0 0 0.15rem;
+}
+
+.stock-alert-detail {
+  color: #b59a6b;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.btn-stock {
+  background-color: transparent;
+  color: #fcd34d;
+  border: 1px solid #b45309;
+  border-radius: 2px;
+  font-size: 0.85rem;
+}
+
+.btn-stock:hover {
+  color: #fcd34d;
+  background-color: rgba(250, 204, 21, 0.12);
+  border-color: #fcd34d;
+}
+
+/* Filtro por barbero */
+.admin-filter-label {
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.admin-select {
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 2px;
+  color: #fff;
+  min-width: 140px;
+}
+
+.admin-select:focus {
+  background-color: #222;
+  border-color: var(--vikingo-red);
+  box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25);
+  color: #fff;
+}
+
+/* Tabla */
+.admin-table-wrap {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background-color: #0f0f0f;
+}
+
+.admin-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #fff;
+  --bs-table-border-color: var(--border-subtle);
+}
+
+.admin-table thead th {
+  background-color: #151515;
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 0.9rem 1rem;
+}
+
+.admin-table .cell-name {
+  font-weight: 600;
+}
+
+.admin-table .cell-muted {
+  color: #9a9a9a;
+}
+
+/* Estado "Cancelada" */
+.badge-cancelled {
+  background-color: #7f1d1d;
+  color: #fca5a5;
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Acciones de la tabla: parecen enlaces, pero son botones */
+.action-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}
+
+.action-edit { color: #60a5fa; }
+.action-confirm { color: #22c55e; }
+.action-done { color: #9ca3af; }
+.action-cancel { color: #e8505b; }
+
+/* 23. PESTAÑA USUARIOS */
+
+/* Colores de los roles */
+.role-admin {
+  background-color: #7f1d1d;
+  color: #fca5a5;
+}
+
+.role-barber {
+  background-color: #1e3a8a;
+  color: #93c5fd;
+}
+
+.role-client {
+  background-color: #3f3f46;
+  color: #d4d4d8;
+}
+
+/* Estado "Inactivo" (el "Activo" ya existe: status-available) */
+.status-inactive {
+  background-color: #3f3f46;
+  color: #9ca3af;
+}
+
+/* Texto atenuado para la fecha de registro */
+.admin-table .cell-dim {
+  color: #7d7d7d;
+  font-size: 0.8rem;
+}
+
+/* Acción Activar / Desactivar */
+.action-toggle {
+  color: #eab308;
+}
+
+/* 24. SERVICIOS Y PRODUCTOS (admin) */
+
+/* Precio en rojo, dentro de las tablas */
+.admin-table .cell-price {
+  color: #e8505b;
+  font-weight: 700;
+}
+
+/* Acción Eliminar */
+.action-delete {
+  color: #e8505b;
+}
+
+/* 25. PESTAÑA INVENTARIO */
+
+/* Tarjetas tipo semáforo */
+.inv-tile {
+  text-align: center;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 1.1rem 1rem;
+}
+
+.inv-tile-number {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.inv-tile-label {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.inv-ok {
+  background-color: #0d2b18;
+  border-color: #166534;
+}
+.inv-ok .inv-tile-number { color: #4ade80; }
+.inv-ok .inv-tile-label { color: #22a05a; }
+
+.inv-low {
+  background-color: #2b1a08;
+  border-color: #92400e;
+}
+.inv-low .inv-tile-number { color: #facc15; }
+.inv-low .inv-tile-label { color: #ca8a04; }
+
+.inv-out {
+  background-color: #2a0d10;
+  border-color: #7f1d1d;
+}
+.inv-out .inv-tile-number { color: #f87171; }
+.inv-out .inv-tile-label { color: #b45560; }
+
+/* Recuadro de aviso */
+.inv-alert {
+  background-color: #2b1a08;
+  border: 1px solid #92400e;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+}
+
+.inv-alert-title {
+  color: #fde047;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0 0.6rem;
+}
+
+/* 26. PESTAÑA VENTAS */
+
+/* Tarjetas con totales */
+.sales-stat {
+  background-color: #131313;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem;
+}
+
+.sales-stat-label {
+  display: block;
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.sales-stat-value {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--vikingo-red);
+}
+
+/* Recuadros de las gráficas */
+.chart-card {
+  background-color: #131313;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  height: 100%;
+}
+
+.chart-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 1rem;
+}
+
+.chart-box {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-empty {
+  color: #6f6f6f;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Acción Imprimir */
+.action-print {
+  color: #9ca3af;
+}
+
+/* 14. CITA CONFIRMADA */
+.confirm-card {
+  max-width: 480px;
+  background-color: #151515;
+  border: 1px solid #22c55e;
+  border-radius: 2px;
+  padding: 2.5rem 2rem;
+}
+
+.confirm-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  font-size: 1.8rem;
+}
+
+.confirm-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-text {
+  color: #9a9a9a;
+  margin-bottom: 1.5rem;
+}
+
+.confirm-summary {
+  background-color: #1f1f1f;
+  border-radius: 2px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.confirm-summary li {
+  color: #8a8a8a;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-summary li:last-child {
+  margin-bottom: 0;
+}
+
+.confirm-summary strong {
+  color: #fff;
+  font-weight: 400;
 }

@@ -1,42 +1,1076 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - Vikingos Master</title>
-    <!-- Aquí conectamos a bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Administrador | Vikingos Master</title>
 
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
-<body class="bg-dark text-white">
+<body>
 
-<!-- Caja principal -->
+  <!--  NAVBAR  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary-subtle">
+    <div class="container">
 
-    <div class="container mt-5">
-        <div class="card bg-dark text-white border-danger border-top border-4 shadow"
-         <h2 class="card-title mb-4 text-center">Gestión de Usuarios</h2>
+      <a class="navbar-brand logo-text" href="index.html#inicio">VIKINGOS MASTER</a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+
+        <ul class="navbar-nav mx-lg-auto align-items-lg-center mb-3 mb-lg-0 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#inicio">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#servicios">SERVICIOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#barberos">BARBEROS</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#productos">PRODUCTOS</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="../pages/reservar.html" class="btn btn-vikingo">RESERVAR CITA</a>
+          </li>
+        </ul>
+
+
+        <div class="nav-user" id="navUser">
+  <span class="nav-user-name">Hola, <span id="navUserName">Maicol</span></span>
+  <a href="index.html" class="nav-user-exit" id="btnSalir">Salir</a>
+</div>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+
+ <!-- ==== PANEL DE ADMINISTRACIÓN ==== -->
+  <main class="panel-section section-dark">
+    <div class="container">
+
+      <!-- Encabezado + tarjetitas -->
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div>
+          <p class="panel-eyebrow">PANEL DE CONTROL</p>
+          <h1 class="panel-title mb-0">Administración</h1>
+        </div>
+        <div class="d-flex gap-2">
+          <div class="stat-box"><span class="stat-box-number">3</span><span class="stat-box-label">Citas activas</span></div>
+          <div class="stat-box"><span class="stat-box-number">5</span><span class="stat-box-label">Usuarios activos</span></div>
+          <div class="stat-box"><span class="stat-box-number">$150k</span><span class="stat-box-label">Ingresos</span></div>
+        </div>
+      </div>
+
+      <!-- Alerta de stock bajo -->
+      <div class="stock-alert d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4" role="alert">
+        <div class="d-flex align-items-start gap-3">
+          <i class="bi bi-exclamation-triangle stock-alert-icon"></i>
+          <div>
+            <p class="stock-alert-title">Alerta de Stock Bajo — 3 producto(s) requieren atención</p>
+            <p class="stock-alert-detail">Gel Extra Fuerte (3 uds) · Shampoo Para Barba (0 uds) · Cepillo Para Barba (2 uds)</p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-stock">Ver inventario</button>
+      </div>
+
+      <!-- Pestañas -->
+      <ul class="nav nav-tabs panel-tabs flex-nowrap overflow-x-auto" id="adminTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tabAdmCitas" data-bs-toggle="tab" data-bs-target="#admCitas"
+                  type="button" role="tab" aria-controls="admCitas" aria-selected="true">Citas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmUsuarios" data-bs-toggle="tab" data-bs-target="#admUsuarios"
+                  type="button" role="tab" aria-controls="admUsuarios" aria-selected="false">Usuarios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmBarberos" data-bs-toggle="tab" data-bs-target="#admBarberos"
+                  type="button" role="tab" aria-controls="admBarberos" aria-selected="false">Barberos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmServicios" data-bs-toggle="tab" data-bs-target="#admServicios"
+                  type="button" role="tab" aria-controls="admServicios" aria-selected="false">Servicios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmProductos" data-bs-toggle="tab" data-bs-target="#admProductos"
+                  type="button" role="tab" aria-controls="admProductos" aria-selected="false">Productos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmInventario" data-bs-toggle="tab" data-bs-target="#admInventario"
+                  type="button" role="tab" aria-controls="admInventario" aria-selected="false">Inventario</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tabAdmVentas" data-bs-toggle="tab" data-bs-target="#admVentas"
+                  type="button" role="tab" aria-controls="admVentas" aria-selected="false">Ventas</button>
+        </li>
+      </ul>
+
+      <div class="tab-content pt-4">
+
+        <!-- 1. CITAS -->
+        <div class="tab-pane fade show active" id="admCitas" role="tabpanel" aria-labelledby="tabAdmCitas" tabindex="0">
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h2 class="panel-heading">Gestión de citas (6)</h2>
+            <div class="d-flex align-items-center gap-2">
+              <label for="filtroBarbero" class="admin-filter-label">Barbero:</label>
+              <select id="filtroBarbero" class="form-select form-select-sm admin-select w-auto">
+                <option value="todos" selected>Todos</option>
+                <option value="carlos">Carlos Vikingo</option>
+                <option value="andres">Andrés Guerrero</option>
+                <option value="diego">Diego Ramírez</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Barbero</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Juan Pérez</td>
+                  <td>Corte Premium</td>
+                  <td class="cell-muted">Carlos Vikingo</td>
+                  <td class="cell-muted">2026-08-22</td>
+                  <td class="cell-muted">10:00 AM</td>
+                  <td><span class="badge badge-confirmed">Confirmada</span></td>
+                  <td>
+                    <div class="d-flex flex-wrap gap-3">
+                      <button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button>
+                      <button type="button" class="action-link action-confirm">Confirmar asistencia</button>
+                      <button type="button" class="action-link action-done">Completar</button>
+                      <button type="button" class="action-link action-cancel">Cancelar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Miguel Torres</td>
+                  <td>Corte + Barba</td>
+                  <td class="cell-muted">Andrés Guerrero</td>
+                  <td class="cell-muted">2026-08-23</td>
+                  <td class="cell-muted">11:00 AM</td>
+                  <td><span class="badge badge-confirmed">Confirmada</span></td>
+                  <td>
+                    <div class="d-flex flex-wrap gap-3">
+                      <button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button>
+                      <button type="button" class="action-link action-confirm">Confirmar asistencia</button>
+                      <button type="button" class="action-link action-done">Completar</button>
+                      <button type="button" class="action-link action-cancel">Cancelar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Felipe Mora</td>
+                  <td>Corte Básico</td>
+                  <td class="cell-muted">Diego Ramírez</td>
+                  <td class="cell-muted">2026-08-15</td>
+                  <td class="cell-muted">2:00 PM</td>
+                  <td><span class="badge badge-done">Completada</span></td>
+                  <td><button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Sebastián Gil</td>
+                  <td>Corte Premium + Diseño</td>
+                  <td class="cell-muted">Carlos Vikingo</td>
+                  <td class="cell-muted">2026-08-10</td>
+                  <td class="cell-muted">3:00 PM</td>
+                  <td><span class="badge badge-done">Completada</span></td>
+                  <td><button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Camilo Herrera</td>
+                  <td>Corte Básico</td>
+                  <td class="cell-muted">Andrés Guerrero</td>
+                  <td class="cell-muted">2026-08-18</td>
+                  <td class="cell-muted">4:00 PM</td>
+                  <td><span class="badge badge-cancelled">Cancelada</span></td>
+                  <td><button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Luis Mendoza</td>
+                  <td>Corte + Barba</td>
+                  <td class="cell-muted">Diego Ramírez</td>
+                  <td class="cell-muted">2026-08-25</td>
+                  <td class="cell-muted">9:00 AM</td>
+                  <td><span class="badge badge-cancelled">Cancelada</span></td>
+                  <td><button type="button" class="action-link action-edit" data-bs-toggle="modal" data-bs-target="#modalEditarCita">Editar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+         <!--  USUARIOS -->
+        <div class="tab-pane fade" id="admUsuarios" role="tabpanel" aria-labelledby="tabAdmUsuarios" tabindex="0">
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h2 class="panel-heading">Usuarios (6)</h2>
+            <button type="button" class="btn btn-vikingo" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsuario">+ REGISTRAR USUARIO</button>
+          </div>
+
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Rol</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Registro</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Carlos Vikingo</td>
+                  <td class="cell-muted">admin@vikingosmaster.com</td>
+                  <td>3101234567</td>
+                  <td><span class="badge badge-status role-admin">Admin</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td class="cell-dim">2026-01-15</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Andrés Guerrero</td>
+                  <td class="cell-muted">andres@vikingosmaster.com</td>
+                  <td>3109876543</td>
+                  <td><span class="badge badge-status role-barber">Barbero</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td class="cell-dim">2026-02-01</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Diego Ramírez</td>
+                  <td class="cell-muted">diego@vikingosmaster.com</td>
+                  <td>3205551234</td>
+                  <td><span class="badge badge-status role-barber">Barbero</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td class="cell-dim">2026-02-15</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Juan Pérez</td>
+                  <td class="cell-muted">juan@test.com</td>
+                  <td>3001234567</td>
+                  <td><span class="badge badge-status role-client">Cliente</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td class="cell-dim">2026-03-10</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Miguel Torres</td>
+                  <td class="cell-muted">miguel@test.com</td>
+                  <td>3109876543</td>
+                  <td><span class="badge badge-status role-client">Cliente</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td class="cell-dim">2026-04-05</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Felipe Mora</td>
+                  <td class="cell-muted">felipe@test.com</td>
+                  <td>3205551234</td>
+                  <td><span class="badge badge-status role-client">Cliente</span></td>
+                  <td><span class="badge badge-status status-inactive">Inactivo</span></td>
+                  <td class="cell-dim">2026-05-20</td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Activar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="admBarberos" role="tabpanel" aria-labelledby="tabAdmBarberos" tabindex="0">
+          <h2 class="panel-heading">Barberos</h2>
+        </div>
+
+
+        <!-- 4 SERVICIOS -->
+        <div class="tab-pane fade" id="admServicios" role="tabpanel" aria-labelledby="tabAdmServicios" tabindex="0">
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h2 class="panel-heading">Servicios (4)</h2>
+            <button type="button" class="btn btn-vikingo" data-bs-toggle="modal" data-bs-target="#modalRegistrarServicio">+ REGISTRAR SERVICIO</button>
+          </div>
+
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Extra</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Corte Básico</td>
+                  <td class="cell-price">$25.000 COP</td>
+                  <td class="cell-dim">—</td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Corte Premium</td>
+                  <td class="cell-price">$30.000 COP</td>
+                  <td class="cell-dim">Incluye mascarilla</td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Corte + Barba</td>
+                  <td class="cell-price">$40.000 COP</td>
+                  <td class="cell-dim">—</td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Corte Premium + Diseño</td>
+                  <td class="cell-price">$55.000 COP</td>
+                  <td class="cell-dim">Incluye diseño y pintura temporal</td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+  <!-- 5 PRODUCTOS -->
+        <div class="tab-pane fade" id="admProductos" role="tabpanel" aria-labelledby="tabAdmProductos" tabindex="0">
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h2 class="panel-heading">Productos (9)</h2>
+            <button type="button" class="btn btn-vikingo" data-bs-toggle="modal" data-bs-target="#modalRegistrarProducto">+ REGISTRAR PRODUCTO</button>
+          </div>
+
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Cera Mate Premium</td>
+                  <td class="cell-muted">Ceras</td>
+                  <td class="cell-price">$35.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Gel Extra Fuerte</td>
+                  <td class="cell-muted">Geles</td>
+                  <td class="cell-price">$22.000 COP</td>
+                  <td><span class="badge badge-status status-low">Stock bajo</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Pomada Brillante</td>
+                  <td class="cell-muted">Pomadas</td>
+                  <td class="cell-price">$38.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Shampoo Para Barba</td>
+                  <td class="cell-muted">Shampoos</td>
+                  <td class="cell-price">$28.000 COP</td>
+                  <td><span class="badge badge-status status-out">Agotado</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Aceite de Argán</td>
+                  <td class="cell-muted">Aceites</td>
+                  <td class="cell-price">$45.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Bálsamo Hidratante</td>
+                  <td class="cell-muted">Bálsamos</td>
+                  <td class="cell-price">$32.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Peine de Madera</td>
+                  <td class="cell-muted">Peines</td>
+                  <td class="cell-price">$18.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Cepillo Para Barba</td>
+                  <td class="cell-muted">Cepillos</td>
+                  <td class="cell-price">$24.000 COP</td>
+                  <td><span class="badge badge-status status-low">Stock bajo</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Polvo Texturizador</td>
+                  <td class="cell-muted">Polvos</td>
+                  <td class="cell-price">$42.000 COP</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                  <td><span class="badge badge-status status-available">Activo</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-toggle">Desactivar</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+       <!-- 6. INVENTARIO -->
+        <div class="tab-pane fade" id="admInventario" role="tabpanel" aria-labelledby="tabAdmInventario" tabindex="0">
+
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <h2 class="panel-heading">Productos</h2>
+            <button type="button" class="btn btn-vikingo" data-bs-toggle="modal" data-bs-target="#modalEntradaStock">+ ENTRADA DE STOCK</button>
+          </div>
+
+          <!-- Tarjetas tipo semáforo -->
+          <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <div class="col">
+              <div class="inv-tile inv-ok">
+                <span class="inv-tile-number">6</span>
+                <span class="inv-tile-label">Disponibles</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="inv-tile inv-low">
+                <span class="inv-tile-number">2</span>
+                <span class="inv-tile-label">Stock bajo</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="inv-tile inv-out">
+                <span class="inv-tile-number">1</span>
+                <span class="inv-tile-label">Agotados</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recuadro de aviso -->
+          <div class="inv-alert mb-4">
+            <p class="inv-alert-title">⚠ Productos con stock bajo o agotado:</p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge badge-status status-low">Gel Extra Fuerte: 3 uds</span>
+              <span class="badge badge-status status-out">Shampoo Para Barba: 0 uds</span>
+              <span class="badge badge-status status-low">Cepillo Para Barba: 2 uds</span>
+            </div>
+          </div>
+
+          <!-- Tabla -->
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Cera Mate Premium</td>
+                  <td class="cell-muted">Ceras</td>
+                  <td>12 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Gel Extra Fuerte</td>
+                  <td class="cell-muted">Geles</td>
+                  <td>3 uds</td>
+                  <td><span class="badge badge-status status-low">Stock bajo</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Pomada Brillante</td>
+                  <td class="cell-muted">Pomadas</td>
+                  <td>15 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Shampoo Para Barba</td>
+                  <td class="cell-muted">Shampoos</td>
+                  <td>0 uds</td>
+                  <td><span class="badge badge-status status-out">Agotado</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Aceite de Argán</td>
+                  <td class="cell-muted">Aceites</td>
+                  <td>8 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Bálsamo Hidratante</td>
+                  <td class="cell-muted">Bálsamos</td>
+                  <td>10 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Peine de Madera</td>
+                  <td class="cell-muted">Peines</td>
+                  <td>20 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Cepillo Para Barba</td>
+                  <td class="cell-muted">Cepillos</td>
+                  <td>2 uds</td>
+                  <td><span class="badge badge-status status-low">Stock bajo</span></td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Polvo Texturizador</td>
+                  <td class="cell-muted">Polvos</td>
+                  <td>9 uds</td>
+                  <td><span class="badge badge-status status-available">Disponible</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
         
 
-        <!-- Tabla de boostrap -->
+        <!-- 7. VENTAS -->
+        <div class="tab-pane fade" id="admVentas" role="tabpanel" aria-labelledby="tabAdmVentas" tabindex="0">
 
-        <table class="table table-dark-striped table-hover mt-4">
-          <thead>
-            <tr>
-                <th>Nombre Completo</th>
-                <th>Correo Electrónico</th>
-                <th>Rol</th>
-            </tr>
-          </thead>
-          <tbody id="tabla-usuarios">
-            <!-- Aqui aterrizaran los datos dinamicamente -->
+          <h2 class="panel-heading mb-4">Ventas</h2>
 
-          </tbody>
-          </table>
+          <!-- Tarjetas con totales -->
+          <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <div class="col">
+              <div class="sales-stat">
+                <span class="sales-stat-label">Ventas activas</span>
+                <span class="sales-stat-value">4</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="sales-stat">
+                <span class="sales-stat-label">Ingresos totales</span>
+                <span class="sales-stat-value">$150.000 COP</span>
+              </div>
+            </div>
+            <div class="col">
+              <div class="sales-stat">
+                <span class="sales-stat-label">Promedio por venta</span>
+                <span class="sales-stat-value">$37.500 COP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recuadros de gráficas (se dibujan con JavaScript más adelante) -->
+          <div class="row g-3 mb-4">
+            <div class="col-lg-6">
+              <div class="chart-card">
+                <h3 class="chart-card-title">Ventas por servicio</h3>
+                <div id="graficaServicios" class="chart-box">
+                  <p class="chart-empty">Gráfica pendiente (se hace con JavaScript)</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="chart-card">
+                <h3 class="chart-card-title">Ingresos por barbero (miles COP)</h3>
+                <div id="graficaBarberos" class="chart-box">
+                  <p class="chart-empty">Gráfica pendiente (se hace con JavaScript)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabla de ventas -->
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Barbero</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-name">Felipe Mora</td>
+                  <td>Corte Básico</td>
+                  <td class="cell-muted">Diego Ramírez</td>
+                  <td class="cell-muted">2026-08-15</td>
+                  <td class="cell-price">$25.000 COP</td>
+                  <td><span class="badge badge-status status-available">Activa</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-print">Imprimir</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Sebastián Gil</td>
+                  <td>Corte Premium + Diseño</td>
+                  <td class="cell-muted">Carlos Vikingo</td>
+                  <td class="cell-muted">2026-08-10</td>
+                  <td class="cell-price">$55.000 COP</td>
+                  <td><span class="badge badge-status status-available">Activa</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-print">Imprimir</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Luis Mendoza</td>
+                  <td>Corte + Barba</td>
+                  <td class="cell-muted">Andrés Guerrero</td>
+                  <td class="cell-muted">2026-08-08</td>
+                  <td class="cell-price">$40.000 COP</td>
+                  <td><span class="badge badge-status status-available">Activa</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-print">Imprimir</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Carlos Ruiz</td>
+                  <td>Corte Premium</td>
+                  <td class="cell-muted">Carlos Vikingo</td>
+                  <td class="cell-muted">2026-08-05</td>
+                  <td class="cell-price">$30.000 COP</td>
+                  <td><span class="badge badge-status status-available">Activa</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-print">Imprimir</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-name">Pedro Sánchez</td>
+                  <td>Corte Básico</td>
+                  <td class="cell-muted">Andrés Guerrero</td>
+                  <td class="cell-muted">2026-08-03</td>
+                  <td class="cell-price">$25.000 COP</td>
+                  <td><span class="badge badge-status status-inactive">Cancelada</span></td>
+                  <td>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="action-link action-edit">Editar</button>
+                      <button type="button" class="action-link action-print">Imprimir</button>
+                      <button type="button" class="action-link action-delete">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
     </div>
-</div>
-</div>
+  </main>
 
-    <script src="../GCS/js/admin.js"></script>
-    
+
+<!-- === VENTANA "EDITAR CITA" === -->
+  <div class="modal fade vm-modal" id="modalEditarCita" tabindex="-1"
+       aria-labelledby="tituloEditarCita" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-title" id="tituloEditarCita">Editar cita</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form id="formEditarCita">
+          <div class="modal-body">
+
+            <div class="mb-3">
+              <label for="editServicio" class="form-label">Servicio</label>
+              <select id="editServicio" name="servicio" class="form-select" required>
+                <option value="corte-basico">Corte Básico</option>
+                <option value="corte-premium" selected>Corte Premium</option>
+                <option value="corte-barba">Corte + Barba</option>
+                <option value="corte-premium-diseno">Corte Premium + Diseño</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="editBarbero" class="form-label">Barbero</label>
+              <select id="editBarbero" name="barbero" class="form-select" required>
+                <option value="carlos" selected>Carlos Vikingo</option>
+                <option value="andres">Andrés Guerrero</option>
+                <option value="diego">Diego Ramírez</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="editFecha" class="form-label">Fecha</label>
+              <input type="date" id="editFecha" name="fecha" class="form-control" value="2026-10-30" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="editHora" class="form-label">Hora</label>
+              <select id="editHora" name="hora" class="form-select" required>
+                <option value="09:00">9:00 AM</option>
+                <option value="10:00" selected>10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="17:00">5:00 PM</option>
+              </select>
+            </div>
+
+            <div class="mb-1">
+              <label for="editTelefono" class="form-label">Teléfono</label>
+              <input type="tel" id="editTelefono" name="telefono" class="form-control"
+                     value="3001234567" pattern="[0-9]{7,10}" inputmode="numeric" required>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-vikingo flex-fill">GUARDAR CAMBIOS</button>
+            <button type="button" class="btn btn-modal-cancel flex-fill" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+   <!-- == VENTANA "REGISTRAR USUARIO" = -->
+  <div class="modal fade vm-modal" id="modalRegistrarUsuario" tabindex="-1"
+       aria-labelledby="tituloRegistrarUsuario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-title" id="tituloRegistrarUsuario">Registrar usuario</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form id="formRegistrarUsuario">
+          <div class="modal-body">
+
+            <div class="mb-3">
+              <label for="regNombre" class="form-label">Nombre completo</label>
+              <input type="text" id="regNombre" name="nombre" class="form-control" autocomplete="off" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="regCorreo" class="form-label">Correo</label>
+              <input type="email" id="regCorreo" name="correo" class="form-control" autocomplete="off" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="regTelefono" class="form-label">Teléfono</label>
+              <input type="tel" id="regTelefono" name="telefono" class="form-control"
+                     pattern="[0-9]{7,10}" inputmode="numeric" autocomplete="off" required>
+            </div>
+
+            <div class="mb-1">
+              <label for="regRol" class="form-label">Rol</label>
+              <select id="regRol" name="rol" class="form-select" required>
+                <option value="admin">Administrador</option>
+                <option value="barbero">Barbero</option>
+                <option value="cliente" selected>Cliente</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-vikingo flex-fill">REGISTRAR</button>
+            <button type="button" class="btn btn-modal-cancel flex-fill" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+   <!-- == VENTANA "REGISTRAR ENTRADA DE STOCK" === -->
+  <div class="modal fade vm-modal" id="modalEntradaStock" tabindex="-1"
+       aria-labelledby="tituloEntradaStock" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-title" id="tituloEntradaStock">Registrar entrada de stock</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form id="formEntradaStock">
+          <div class="modal-body">
+
+            <div class="mb-3">
+              <label for="stockProducto" class="form-label">Producto</label>
+              <select id="stockProducto" name="producto" class="form-select" required>
+                <option value="" selected>Seleccionar producto</option>
+                <option value="cera-mate-premium">Cera Mate Premium</option>
+                <option value="gel-extra-fuerte">Gel Extra Fuerte</option>
+                <option value="pomada-brillante">Pomada Brillante</option>
+                <option value="shampoo-para-barba">Shampoo Para Barba</option>
+                <option value="aceite-de-argan">Aceite de Argán</option>
+                <option value="balsamo-hidratante">Bálsamo Hidratante</option>
+                <option value="peine-de-madera">Peine de Madera</option>
+                <option value="cepillo-para-barba">Cepillo Para Barba</option>
+                <option value="polvo-texturizador">Polvo Texturizador</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="stockCantidad" class="form-label">Cantidad a ingresar</label>
+              <input type="number" id="stockCantidad" name="cantidad" class="form-control"
+                     min="1" step="1" autocomplete="off" required>
+            </div>
+
+            <div class="mb-1">
+              <label for="stockNotas" class="form-label">Notas (opcional)</label>
+              <input type="text" id="stockNotas" name="notas" class="form-control"
+                     placeholder="Ej: Restock mensual" autocomplete="off">
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-vikingo flex-fill">REGISTRAR ENTRADA</button>
+            <button type="button" class="btn btn-modal-cancel flex-fill" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer pt-5">
+    <div class="container">
+
+      <div class="row g-5 pb-5">
+
+        <div class="col-md-6 col-lg-3">
+          <p class="footer-brand logo-text">VIKINGOS MASTER</p>
+          <span class="footer-line"></span>
+          <p class="footer-text">Estilo, precisión y carácter. Más de 8 años transformando looks en Bogotá.</p>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Horarios</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li class="d-flex justify-content-between"><span>Lun – Vie</span><span class="text-white">9:00 – 18:00</span></li>
+            <li class="d-flex justify-content-between"><span>Sábado</span><span class="text-white">8:00 – 19:00</span></li>
+            <li class="d-flex justify-content-between"><span>Domingo</span><span class="text-white">10:00 – 15:00</span></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Contacto</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><i class="bi bi-geo-alt-fill text-vikingo me-2"></i>Cra. 15 #93-75, Bogotá</li>
+            <li><i class="bi bi-telephone-fill text-vikingo me-2"></i>+57 310 987 6543</li>
+            <li><i class="bi bi-envelope-fill text-vikingo me-2"></i>info@vikingosmaster.co</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Enlaces</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#barberos">Barberos</a></li>
+            <li><a href="index.html#productos">Productos</a></li>
+            <li><a href="../pages/reservar.html">Reservar cita</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2 py-4">
+        <small>&copy; 2026 Vikingos Master. Todos los derechos reservados.</small>
+        <small>Gestión de citas y servicios</small>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="../js/datos.js"></script>
+<script src="../js/sesion.js"></script>
+<script src="../js/main.js"></script>
+
 </body>
 </html>

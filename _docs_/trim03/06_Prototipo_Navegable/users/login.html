@@ -1,41 +1,152 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Vikingos Master</title>
-    <!-- Aquí conectamos tu archivo local, cero internet requerido -->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión | Vikingos Master</title>
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
 
-    <!-- Caja principal -->
-    <div class="caja-registro">
-        <h2>Crear Cuenta en Vikingos Master</h2>
-       
-        <form id="form-registro">
-            <!-- Campo: Nombre -->
-            <div class="grupo-input">
-                <label for="reg-nombre">Nombre Completo:</label>
-                <input type="text" id="reg-nombre" required>
-            </div>
-        
-            <!-- Campo: Correo -->
-            <div class="grupo-input">
-                <label for="reg-correo">Correo Electrónico:</label>
-                <input type="email" id="reg-correo" required>
-            </div>
+  <!--  NAVBAR  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary-subtle">
+    <div class="container">
 
-            <!-- Campo: Contraseña -->
-            <div class="grupo-input">
-                <label for="reg-password">Contraseña:</label>
-                <input type="password" id="reg-password" required>
-            </div>
+      <a class="navbar-brand logo-text" href="index.html#inicio">VIKINGOS MASTER</a>
 
-            <!-- Botón de envio -->
-            <button type="submit" class="btn-rojo">Registrarme</button>
-        </form>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+
+        <ul class="navbar-nav mx-lg-auto align-items-lg-center mb-3 mb-lg-0 gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#inicio">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#servicios">SERVICIOS</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#barberos">BARBEROS</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#productos">PRODUCTOS</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="../pages/reservar.html" class="btn btn-vikingo">RESERVAR CITA</a>
+          </li>
+        </ul>
+
+        <a href="login.html" class="btn btn-login">Iniciar sesión</a>
+
+      </div>
     </div>
-         <script src="../js/scripts.js"></script>      
+  </nav>
+
+  <!-- PASO 12: INICIAR SESIÓN -->
+  <main class="auth-section section-dark">
+    <div class="container">
+
+      <div class="text-center mb-4">
+        <h1 class="section-title">INICIAR SESIÓN</h1>
+        <span class="section-line"></span>
+        <p class="auth-subtitle">Accede a tu cuenta de Vikingos Master</p>
+      </div>
+
+      <div class="form-card auth-card mx-auto">
+
+    
+
+        <form id="formLogin">
+
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" class="form-control"
+                   autocomplete="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="clave" class="form-label">Contraseña</label>
+            <input type="password" id="clave" name="clave" class="form-control"
+                   minlength="4" autocomplete="current-password" required>
+          </div>
+
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-vikingo btn-lg">INICIAR SESIÓN</button>
+          </div>
+
+          <div class="auth-links d-flex justify-content-between mt-4">
+            <a href="#">Olvidé mi contraseña</a>
+            <a href="user_create.html">Crear cuenta</a>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer pt-5">
+    <div class="container">
+
+      <div class="row g-5 pb-5">
+
+        <div class="col-md-6 col-lg-3">
+          <p class="footer-brand logo-text">VIKINGOS MASTER</p>
+          <span class="footer-line"></span>
+          <p class="footer-text">Estilo, precisión y carácter. Más de 8 años transformando looks en Bogotá.</p>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-btn" aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Horarios</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li class="d-flex justify-content-between"><span>Lun – Vie</span><span class="text-white">9:00 – 18:00</span></li>
+            <li class="d-flex justify-content-between"><span>Sábado</span><span class="text-white">8:00 – 19:00</span></li>
+            <li class="d-flex justify-content-between"><span>Domingo</span><span class="text-white">10:00 – 15:00</span></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Contacto</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><i class="bi bi-geo-alt-fill text-vikingo me-2"></i>Cra. 15 #93-75, Bogotá</li>
+            <li><i class="bi bi-telephone-fill text-vikingo me-2"></i>+57 310 987 6543</li>
+            <li><i class="bi bi-envelope-fill text-vikingo me-2"></i>info@vikingosmaster.co</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h3 class="footer-title">Enlaces</h3>
+          <span class="footer-line"></span>
+          <ul class="list-unstyled footer-list">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#barberos">Barberos</a></li>
+            <li><a href="index.html#productos">Productos</a></li>
+            <li><a href="../pages/reservar.html">Reservar cita</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2 py-4">
+        <small>&copy; 2026 Vikingos Master. Todos los derechos reservados.</small>
+        <small>Gestión de citas y servicios</small>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/datos.js"></script>
+<script src="../js/sesion.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
